@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Send WhatsApp Message</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form action="@Url.Action("SendWhatsAppMsg", "Whatsapp")" method="post">
+    <div class="form-group">
+        <label for="recipientPhoneNumber">Recipient Phone Number :</label>
+        <input type="text" class="form-control" id="recipientPhoneNumber" name="recipientPhoneNumber" required>
+    </div>
+    <!-- Add more form fields for message content if needed -->
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
